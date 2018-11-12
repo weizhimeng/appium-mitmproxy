@@ -86,7 +86,14 @@ mitmproxy -p 8080
 
 
 
+## 爬取抖音视频
+代码已附上，较简单，先使用mitmdump -s douyin.py命令开启抓包，再运行douyin_appium自动滑动屏幕换下一个视频。但是事情没有那么简单，使用mitmdump命令运行脚本时会报错：
+```
+in script douyin.py: No module named 'requests'
+```
+requests是肯定已经安装了的，不知道为什么会报错，根据网上的方法，一是使用python3，但结果一样，另一种方法就是将文件放到requests包的目录下。刚开始我是搜索requests.py文件的目录然后将文件复制过去，发现仍有错误。之后发现，是放在requests包的目录，而不是requests.py的目录，即site-packages目录。
 
+## 程序的编写参考了网上的很多相同项目，appium和mitmproxy的学习和联合使用给了我很大的启发，能够完成移动端很多之前单纯抓包不能完成的爬取。当然，整个过程下来，最头大的还是各种环境的配置。
 
 
 
