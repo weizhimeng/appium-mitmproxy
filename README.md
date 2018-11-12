@@ -69,7 +69,24 @@ app_activity='.BrowserActivity'    #启动时的activity  可通过adb logcat|gr
 driver_server='http://localhost:4723/wd/hub'  #appium端口，不需要更改
 ```
 
-下一步就是如何
+下一步就是如何进行元素定位了，appium-desktop可以获取xpath并且生成不同语言的代码，非常方便，同时可以清楚看到id等定位信息。对于appium来说，则需要用到android sdk中的uiautomatorviewer了，在android-sdk/tools目录下。然而，我又碰上了问题，简单来说错误提醒我mac无法打开java虚拟机,百度后，需要将java版本降到8.0，一通忙活后，所有环境的配置完成。 
+
+
+## mitmproxy安装及环境配置
+```
+brew install mitmproxy
+pip install mitmproxy
+```
+安装非常简单，环境路径添加后，下面是启动命令：
+```
+mitmproxy -p 8080
+```
+8080是端口号，可以自己设置，手机端的设置的话和charles等抓包工具一样，设置一下代理就行。完成后就能抓到http请求了，之后为了抓取https请求，需要安装证书，手机浏览器访问mitm.it就可以下载了，但是我下载失败（原因不知）。只能手动添加了。
+初次运行mitmproxy或mitmdump时，会生成.mitmproxy文件夹，cd ~/.mitmproxy后可以看到有4个文件，将mitmproxy-ca-cert.cer传给手机，我用的小米手机，在wifi设置里安装，不同手机安装方法不同，自行百度。到此，大功告成。
+
+
+
+
 
 
 
