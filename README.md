@@ -91,7 +91,8 @@ mitmproxy -p 8080
 ```
 in script douyin.py: No module named 'requests'
 ```
-requests是肯定已经安装了的，不知道为什么会报错，根据网上的方法，一是使用python3，但结果一样，另一种方法就是将文件放到requests包的目录下。刚开始我是搜索requests.py文件的目录然后将文件复制过去，发现仍有错误。之后发现，是放在requests包的目录，而不是requests.py的目录，即site-packages目录。
+requests是肯定已经安装了的，不知道为什么会报错，根据网上的方法，一是使用python3，但结果一样，另一种方法就是将文件放到requests包的目录下。刚开始我是搜索requests.py文件的目录然后将文件复制过去，发现仍有错误。之后发现，是放在requests包的目录，而不是requests.py的目录，即site-packages目录。 
+douyin_appium.py文件中的坐标需要根据手机分辨率设置，若出现 Injecting to another application requires INJECT_EVENTS permission错误，则为手机权限不够，无法模拟点击滑动等操作，需要在开发者选项中打开usb调试等等与usb相关的所有设置。
 
 ## 程序的编写参考了网上的很多相同项目，appium和mitmproxy的学习和联合使用给了我很大的启发，能够完成移动端很多之前单纯抓包不能完成的爬取。当然，整个过程下来，最头大的还是各种环境的配置。
 
