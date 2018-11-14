@@ -95,7 +95,7 @@ requests是肯定已经安装了的，不知道为什么会报错，根据网上
 douyin_appium.py文件中的坐标需要根据手机分辨率设置，若出现 Injecting to another application requires INJECT_EVENTS permission错误，则为手机权限不够，无法模拟点击滑动等操作，需要在开发者选项中打开usb调试等等与usb相关的所有设置。
 
 ### 程序的编写参考了网上的很多相同项目，appium和mitmproxy的学习和联合使用给了我很大的启发，能够完成移动端很多之前单纯抓包不能完成的爬取。当然，整个过程下来，最头大的还是各种环境的配置，不过收获还是非常对得起付出的。
-## 爬取抖音视频主要是通过脚本抓url然后构造get请求，但mitmproxy的作用远大于此，还能直接抓取response，对于post请求效果拔群，之前用charles抓包时会有抓的到包，但复制curl到postman里测试时却无法得到正确页面，其中原因可能是因为参数过期或者其他未知原因，但使用mitmproxy可以直接避过这一难题，可以直接获取到response，并且直接与python联动，可以实现大部分app的抓取，简直就是移动端神器。不过缺点也很明细，必须要使用手机，也没有无头浏览器这类东西，即使使用appium，每次爬取也要连接手机，不能部署到服务器上。
+## 爬取抖音视频主要是通过脚本抓url然后构造get请求，但mitmproxy的作用远大于此，还能直接抓取response，对于post请求效果拔群，之前用charles抓包时会有抓的到包，但复制curl到postman里测试时却无法得到正确页面，其中原因可能是因为参数过期或者其他未知原因，但使用mitmproxy可以直接避过这一难题，可以直接获取到response，(如response = flow.response.text可以直接获取返回的文本数据)并且直接与python联动，可以实现大部分app的抓取，简直就是移动端神器。不过缺点也很明细，必须要使用手机，也没有无头浏览器这类东西，即使使用appium，每次爬取也要连接手机，不能部署到服务器上。
 
 
 
